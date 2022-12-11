@@ -1,21 +1,17 @@
+<app-header></app-header>
+
 <p>Step: {{ step }}</p>
 
-<label for="name">Nome: </label>
-<input
-  name="name"
-  id="name"
-  type="text"
-  [value]="formData.name"
-  (change)="handleChange($event)"
-/>
-<br />
+<app-user-form
+  [formData]="formData"
+  [step]="step"
+  (changeStep)="handleNextStep()"
+  (clearFormData)="handleClearForm()"
+></app-user-form>
+{{ formData.value | json }}
+{{ formData.valid | json }}
 
-<label for="email">Email: </label>
-<input name="email" id="email" type="email" />
-<br />
+<br>
+<br>
+<button (click)="login()">Login</button>
 
-<label for="phone">Telefone: </label>
-<input name="phone" id="phone" type="text" />
-<br />
-
-{{ formData | json }}

@@ -1,0 +1,30 @@
+<form [formGroup]="formData">
+  <ng-container *ngIf="step === 0">
+    <label for="name">Nome: </label>
+    <input
+      name="name"
+      id="name"
+      type="text"
+      formControlName="name"
+    />
+    <br />
+    <button [disabled]="!formData.controls['name'].valid" (click)="handleNextStep()">Próximo</button>
+  </ng-container>
+
+  <ng-container *ngIf="step === 1">
+    <label for="email">Email: </label>
+    <input name="email" id="email" type="email" formControlName="email" />
+    <br />
+    <button [disabled]="!formData.controls['email'].valid" (click)="handleNextStep()">Próximo</button>
+  </ng-container>
+
+  <ng-container *ngIf="step === 2">
+    <label for="phone">Telefone: </label>
+    <input name="phone" id="phone" type="text" formControlName="phone" />
+    <br />
+    <button disabled>Próximo</button>
+  </ng-container>
+
+  <button [disabled]="!formData.valid">Fim</button>
+  <button (click)="handleClearForm()">Limpar</button>
+</form>
