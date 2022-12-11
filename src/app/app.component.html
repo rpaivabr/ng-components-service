@@ -1,0 +1,21 @@
+<p>Step: {{ step }}</p>
+
+<label for="name">Nome: </label>
+<input
+  name="name"
+  id="name"
+  type="text"
+  [value]="formData.name"
+  (change)="handleChange($event)"
+/>
+<br />
+
+<label for="email">Email: </label>
+<input name="email" id="email" type="email" />
+<br />
+
+<label for="phone">Telefone: </label>
+<input name="phone" id="phone" type="text" />
+<br />
+
+{{ formData | json }}
